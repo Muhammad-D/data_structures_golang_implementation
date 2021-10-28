@@ -8,24 +8,28 @@ import (
 
 func Start() {
 
-	var head *model.Node = model.New(0)
-	Insert(3, head)
-	Insert(5, head)
-	Insert(45, head)
-	Insert(265, head)
-	Insert(14, head)
+	var head *model.Node
+	Insert(3, &head)
+	Insert(5, &head)
+	Insert(45, &head)
+	Insert(265, &head)
+	Insert(14, &head)
 
 	Print(head)
 
 }
 
-func Insert(num int, headPointer *model.Node) {
-
-	for headPointer.Link != nil {
-		headPointer = headPointer.Link
+func Insert(num int, hp **model.Node) {
+	temp := model.New(num)
+	temp1 := *hp
+	if temp1 != nil {
+		for temp1.Link != nil {
+			temp1 = temp1.Link
+		}
+		temp1.Link = temp
+		return
 	}
-	headPointer.Link = model.New(num)
-
+	*hp = temp
 }
 
 func Print(hp *model.Node) {
