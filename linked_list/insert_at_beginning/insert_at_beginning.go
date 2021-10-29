@@ -18,16 +18,16 @@ func Start() {
 	for i := 0; i < n; i++ {
 		fmt.Print("Enter value ")
 		fmt.Scanln(&x)
-		insert(x, &head)
+		head = insert(x, head)
 		print(head)
 	}
 
 }
 
-func insert(n int, hp **model.Node) {
+func insert(n int, hp *model.Node) *model.Node {
 	temp := model.New(n)
-	temp.Link = *hp
-	*hp = temp
+	temp.Link = hp
+	return temp
 }
 
 func print(hp *model.Node) {
