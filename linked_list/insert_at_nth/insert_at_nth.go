@@ -9,13 +9,20 @@ import (
 func Start() {
 
 	var head *model.Node
-	insert(3, 1, &head)
-	insert(5, 2, &head)
-	insert(289, 1, &head)
-	insert(989, 3, &head)
-	insert(7678, 2, &head)
-	print(head)
 
+	var n, num, place int
+
+	fmt.Print("How many nodes should in a linked list: ")
+	fmt.Scan(&n)
+
+	for i := 0; i < n; i++ {
+		fmt.Print("Enter a value of a new node: ")
+		fmt.Scan(&num)
+		fmt.Print("Enter a position of the new node: ")
+		fmt.Scan(&place)
+		insert(num, place, &head)
+		print(head)
+	}
 }
 
 func insert(num, place int, hp **model.Node) {
