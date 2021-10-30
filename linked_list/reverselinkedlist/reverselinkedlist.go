@@ -8,24 +8,23 @@ import (
 
 func Start() {
 	var head *model.Node
-	insert(8, &head)
-	insert(34, &head)
-	insert(98, &head)
-	insert(359, &head)
+	head = insert(8, head)
+	head = insert(34, head)
+	head = insert(98, head)
+	head = insert(359, head)
 	print(head)
-	reverse(&head)
+	head = reverse(head)
 	print(head)
 
 }
 
-func insert(n int, h **model.Node) {
+func insert(n int, h *model.Node) *model.Node {
 	temp := model.New(n)
-	if *h == nil {
-		*h = temp
-		return
+	if h == nil {
+		return temp
 	}
-	temp.Link = *h
-	*h = temp
+	temp.Link = h
+	return temp
 }
 
 func print(h *model.Node) {
@@ -38,11 +37,9 @@ func print(h *model.Node) {
 
 }
 
-func reverse(hp **model.Node) {
+func reverse(current *model.Node) *model.Node {
 
-	var current, next, prev *model.Node
-
-	current = *hp
+	var next, prev *model.Node
 
 	for current != nil {
 		next = current.Link
@@ -51,6 +48,6 @@ func reverse(hp **model.Node) {
 		current = next
 	}
 
-	*hp = prev
+	return prev
 
 }
