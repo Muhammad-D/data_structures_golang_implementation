@@ -8,24 +8,26 @@ import (
 
 func Start() {
 	var head *model.Node
-	head = insert(8, head)
-	head = insert(34, head)
-	head = insert(98, head)
-	head = insert(359, head)
+	insert(8, &head)
+	insert(34, &head)
+	insert(98, &head)
+	insert(359, &head)
 	print(head)
-	head = reverse(head)
+	reverse(&head)
 	print(head)
 
 }
 
-func insert(n int, h *model.Node) *model.Node {
+func insert(n int, h **model.Node) {
 	temp := model.New(n)
-	if h == nil {
-		return temp
+	if *h == nil {
+		*h = temp
+		return
 	}
-	temp.Link = h
-	return temp
+	temp.Link = *h
+	*h = temp
 }
+
 func print(h *model.Node) {
 	fmt.Print("A linked list consists of following values: ")
 	for h != nil {
@@ -35,13 +37,12 @@ func print(h *model.Node) {
 	fmt.Println()
 
 }
-func reverse(current *model.Node) *model.Node {
 
-	var next, prev *model.Node
+func reverse(hp **model.Node) {
 
-	if current == nil {
-		return nil
-	}
+	var current, next, prev *model.Node
+
+	current = *hp
 
 	for current != nil {
 		next = current.Link
@@ -50,5 +51,6 @@ func reverse(current *model.Node) *model.Node {
 		current = next
 	}
 
-	return prev
+	*hp = prev
+
 }
