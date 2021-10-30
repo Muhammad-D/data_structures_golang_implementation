@@ -13,7 +13,7 @@ func Start() {
 	head = insert(98, head)
 	head = insert(359, head)
 	print(head)
-	head = reverse(head)
+	head = reverse(head, nil)
 	print(head)
 
 }
@@ -37,16 +37,20 @@ func print(h *model.Node) {
 
 }
 
-func reverse(current *model.Node) *model.Node {
+func reverse(current, prev *model.Node) *model.Node {
 
-	var next, prev *model.Node
+	var next *model.Node
 
-	for current != nil {
-		next = current.Link
-		current.Link = prev
-		prev = current
-		current = next
+	if current == nil {
+		return prev
 	}
+
+	next = current.Link
+	current.Link = prev
+	prev = current
+	current = next
+
+	prev = reverse(current, prev)
 
 	return prev
 
