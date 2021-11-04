@@ -9,8 +9,9 @@ import (
 func Start() {
 
 	var head *model.Node
-	head = Insert(3, head)
+
 	head = Insert(5, head)
+	head = Insert(3, head)
 	head = Insert(45, head)
 	head = Insert(265, head)
 	head = Insert(14, head)
@@ -29,8 +30,7 @@ func Insert(num int, hp *model.Node) *model.Node {
 		temp1.Link = temp
 		return hp
 	}
-	hp = temp
-	return hp
+	return temp
 }
 
 func Print(hp *model.Node) {
