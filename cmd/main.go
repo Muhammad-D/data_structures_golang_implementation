@@ -1,6 +1,8 @@
 package main
 
-import "github.com/Muhammad-D/data_structures_golang_implementation/linked_list/reverselinkedlist"
+import (
+	doublyll "github.com/Muhammad-D/data_structures_golang_implementation/linked_list/doublyLL"
+)
 
 func main() {
 
@@ -12,7 +14,8 @@ func main() {
 	// delete_at_nth.Start()
 	// delete_at_nth.Start2()
 	// reverselinkedlist.Start()
-	reverselinkedlist.Start2()
+	// reverselinkedlist.Start1()
 	// reversellrecurtion.Start()
+	doublyll.Start()
 
 }

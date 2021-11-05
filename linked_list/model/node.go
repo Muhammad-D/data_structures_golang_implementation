@@ -5,16 +5,20 @@ import (
 	"time"
 )
 
+//A linked list STRUCT...
 type Node struct {
 	Num  int
 	Link *Node
 }
 
+//Create a new linked list FUNC...
 func New(n int) *Node {
 	return &Node{
 		Num: n,
 	}
 }
+
+//Create a new linked list with a "Link" argument FUNC...
 func NewWithLink(n int, l *Node) *Node {
 	return &Node{
 		Num:  n,
@@ -22,6 +26,7 @@ func NewWithLink(n int, l *Node) *Node {
 	}
 }
 
+//Creat a slice FUNC...
 func CreateSlice(length int) []int {
 
 	rand.Seed(time.Now().UnixNano())
@@ -34,6 +39,7 @@ func CreateSlice(length int) []int {
 	return slice
 }
 
+//Create a slice with a max value FUNC...
 func CreateSliceInt(length int, maxValue int) []int {
 
 	slice := make([]int, length)
