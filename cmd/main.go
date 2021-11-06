@@ -1,7 +1,7 @@
 package main
 
 import (
-	doublyll "github.com/Muhammad-D/data_structures_golang_implementation/linked_list/doublyLL"
+	"github.com/Muhammad-D/data_structures_golang_implementation/stack_dt/arrimpl"
 )
 
 func main() {
@@ -16,6 +16,7 @@ func main() {
 	// reverselinkedlist.Start()
 	// reverselinkedlist.Start1()
 	// reversellrecurtion.Start()
-	doublyll.Start()
+	// doublyll.Start()
+	arrimpl.Start()
 
 }
